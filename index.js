@@ -1,18 +1,19 @@
 require('dotenv').config();
-const path = require('path');
 const express = require('express');
-
-const retrieveAllCustomers = require('./customer/retrieve_all');
+const retrieveCustomers = require('./customer/retrieve_all');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/retrieve-all-customers', (req, res) => {
-     retrieveAllCustomers(() => {
-        res.send()
-    });
-});
+app.get('/', (req, res) => res.send('Hello World!'))
 
+app.get('/retrieve-customers', (req, res) => {
+    retrieveCustomers().then( async (body) => {
+        let data = body;
+        await res.send(data);
+    })
+
+});
 
 app.listen(port, () => {
     console.log('Server listening on port ' + port);
