@@ -1,0 +1,16 @@
+{
+  "name": "shopify-api-request-promise",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/3daddict/shopify-api-request-promise.git",
+  "author": "Mike Salvati",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  }
+}
