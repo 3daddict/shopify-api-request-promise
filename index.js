@@ -8,9 +8,13 @@ const port = process.env.PORT || 3000;
 app.get('/', (req, res) => res.send('Hello World!'))
 
 app.get('/retrieve-customers', (req, res) => {
-    retrieveCustomers().then( async (body) => {
+    retrieveCustomers()
+    .then( async (body) => {
         let data = body;
-        await res.send(data);
+        await res.status(200).send(data);
+    })
+    .catch((err) => {
+        return res.status(400).send(err);
     })
 
 });
